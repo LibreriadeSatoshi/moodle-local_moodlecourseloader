@@ -36,10 +36,11 @@ class update_section extends external_api {
 
         $section = $DB->get_record(
             'course_sections',
-            ['course' => $course->id, 'section' => $params['sectionnum']],
-            '*',
-            MUST_EXIST
+            ['course' => $course->id, 'section' => $params['sectionnum']]
         );
+        if (!$section) {
+            $section = course_create_section($course->id, $params['sectionnum']);
+        }
 
         $data = [];
         if ($params['name'] !== '') {

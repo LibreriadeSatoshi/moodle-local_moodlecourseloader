@@ -39,13 +39,10 @@ class create_page extends external_api {
         self::validate_context($context);
         require_capability('moodle/course:manageactivities', $context);
 
-        // Verify the section exists.
-        $DB->get_record(
-            'course_sections',
-            ['course' => $course->id, 'section' => $params['sectionnum']],
-            '*',
-            MUST_EXIST
-        );
+        // Create the section if it does not exist yet.
+        if (!$DB->record_exists('course_sections', ['course' => $course->id, 'section' => $params['sectionnum']])) {
+            course_create_section($course->id, $params['sectionnum']);
+        }
 
         $module = $DB->get_record('modules', ['name' => 'page'], '*', MUST_EXIST);
 
