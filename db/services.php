@@ -11,6 +11,15 @@ $functions = [
         'loginrequired' => true,
         'ajax'          => false,
     ],
+    'local_moodlecourseloader_set_course_image' => [
+        'classname'     => 'local_moodlecourseloader\external\set_course_image',
+        'methodname'    => 'execute',
+        'description'   => 'Upload an image to the course overview files area.',
+        'type'          => 'write',
+        'capabilities'  => 'moodle/course:update',
+        'loginrequired' => true,
+        'ajax'          => false,
+    ],
     'local_moodlecourseloader_create_page' => [
         'classname'     => 'local_moodlecourseloader\external\create_page',
         'methodname'    => 'execute',
@@ -40,6 +49,7 @@ $services = [
             'core_webservice_get_site_info',
             'enrol_manual_enrol_users',
             'enrol_manual_unenrol_users',
+            'local_moodlecourseloader_set_course_image',
             'local_moodlecourseloader_update_section',
             'local_moodlecourseloader_create_page',
         ],
