@@ -25,6 +25,21 @@ $functions = [
 $services = [
     'Moodle Course Loader Service' => [
         'functions'       => [
+            'core_competency_duplicate_competency_framework',
+            'core_competency_duplicate_template',
+            'core_course_create_categories',
+            'core_course_create_courses',
+            'core_course_delete_courses',
+            'core_course_duplicate_course',
+            'core_course_get_categories',
+            'core_course_get_contents',
+            'core_course_get_courses_by_field',
+            'core_course_update_courses',
+            'core_files_get_files',
+            'core_files_upload',
+            'core_webservice_get_site_info',
+            'enrol_manual_enrol_users',
+            'enrol_manual_unenrol_users',
             'local_moodlecourseloader_update_section',
             'local_moodlecourseloader_create_page',
         ],
